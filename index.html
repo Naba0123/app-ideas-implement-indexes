@@ -1,0 +1,66 @@
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>app-ideas-implement-list</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+
+      <header>
+        <h1>app-ideas-implement-list</h1>
+      </header>
+
+      <div class="row">
+        <div col="12">
+
+        </div>
+      </div>
+      
+      <h2>What's this</h2>
+      <p>app-ideas-implemenet-list is repogitory list that <strong>my</strong> implementing of <a href="https://github.com/florinpop17/app-ideas">florinpop17's app-ideas</a> list.</p>
+      <p>This will be used for my portfolio.</p>
+
+      <div id="implement"></div>
+
+      <footer>
+        <a href="https://github.com/Naba0123">GitHub</a>, <a href="https://twitter.com/Naba0123">Twitter</a>
+      </footer>
+    </div>
+
+    <script>
+      $(function() {
+        const appList = {
+          "Tier-1: Beginner Projects": {
+            "Bin2Dec": "https://naba0123.github.io/app-ideas-Bin2Dec",
+            "Border-Radius-Previewer": "https://naba0123.github.io/app-ideas-Border-Radius-Previewer",
+          },
+          "Tier-2: Intermediate Projects": {},
+          "Tier-3: Advanced Projects": {},
+        };
+        
+        const $implement = $('#implement');
+
+        Object.keys(appList).forEach((tier) => {
+          let table = '<table class="table"><thead><tr><th>Project</th><th>Repogitory</th><th>Host on</th></tr></thead><tbody>';
+
+          Object.keys(appList[tier]).forEach((project) => {
+            const host = appList[tier][project];
+            const repo = '<a href="https://github.com/Naba0123/app-ideas-' + project + '" target="_blank">app-ideas-' + project + '</a>';
+            const hosting = '<a href="' + host + '" target="_blank">Link</a>';
+            table += "<tr><td>" + project + "</td><td>" + repo + "</td><td>" + hosting + "</td>";
+          });
+
+          table += '</tbody></table>';
+          $implement.append('<h2>' + tier + '</h2>' + table)
+        });
+      });
+    </script>
+  </body>
+</html>
